@@ -1,0 +1,11 @@
+[Unit]
+Description=Disk Usage Metrics Agent
+[Service]
+PIDFile=/run/disk_usage_metrics_agent.pid
+ExecStart=/bin/bash --login -c '/usr/bin/python3.7 /var/disk_usage_metrics_collector/collector.py'
+User=root
+Group=root
+WorkingDirectory=/var/disk_usage_metrics_collector/
+Restart=always
+[Install]
+WantedBy=multi-user.target
